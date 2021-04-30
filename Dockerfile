@@ -34,7 +34,8 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install tidal-dl \
 	&& pip3 install speedtest-cli \
 	&& pip3 install gdown \
-	&& pip3 install youtube-dl
+	&& pip3 install youtube-dl \
+	&& pip3 install llvd
 
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc
 RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/master/install.sh | sh -s
