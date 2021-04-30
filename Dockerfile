@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-RUN RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
+RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	groff \
 	openssh-server \
 	build-essential \
