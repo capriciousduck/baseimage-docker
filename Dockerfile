@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+ENV LC_ALL=C.UTF-8
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	groff \
 	ubuntu-server \
@@ -34,7 +35,8 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install tidal-dl \
 	&& pip3 install speedtest-cli \
 	&& pip3 install gdown \
-	&& pip3 install youtube-dl
+	&& pip3 install youtube-dl \
+	&& pip3 install llvd
 
 #Installing mcclient
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc
