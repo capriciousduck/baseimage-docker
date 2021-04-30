@@ -37,7 +37,8 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install speedtest-cli \
 	&& pip3 install gdown \
 	&& pip3 install youtube-dl \
-	&& pip3 install llvd
+	&& pip3 install llvd \
+	&& pip3 install awscli
 
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc
@@ -55,7 +56,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sud
 RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 
 #Installing aws cli
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+#RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
 
 #Installing heroku cli
 RUN curl https://cli-assets.heroku.com/install.sh | sh
