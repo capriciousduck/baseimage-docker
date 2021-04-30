@@ -63,3 +63,7 @@ RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O 
 #Installing Linkedin Learning Downloader
 #RUN pip3 install llvd==2.2.1
 
+#Installing LLVD from git repo
+RUN git clone https://github.com/knowbee/llvd.git ~/llvd && cd llvd && pip3 install -r requirements.txt && sudo python3 setup.py
+
+
