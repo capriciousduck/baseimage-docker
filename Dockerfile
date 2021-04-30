@@ -38,9 +38,6 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install youtube-dl \
 	&& pip3 install llvd
 
-#Copying Anits Google Drive Conf
-COPY .googledrive.conf /root/.googledrive.conf
-
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc
 
