@@ -56,4 +56,6 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 ##Installing TTyD
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
+#Installing Linkedin Learning Downloader
+RUN pip3 install llvd==2.2.1
 
