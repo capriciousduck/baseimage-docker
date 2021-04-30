@@ -39,4 +39,9 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc
 RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/master/install.sh | sh -s
 RUN yes | unminimize
+RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt install nodejs -y
+RUN npm i -g @railway/cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+RUN curl https://cli-assets.heroku.com/install.sh | sh
+
 
