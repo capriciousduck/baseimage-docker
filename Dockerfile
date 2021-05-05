@@ -70,5 +70,5 @@ RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O 
 RUN pip3 install llvd
 
 #Installing http-server
-npm install -g http-server
+RUN npm install -g http-server
 
