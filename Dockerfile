@@ -1,4 +1,4 @@
-FROM snapcore/snapcraft:stable
+FROM capriciousduck/baseimage-docker:snap
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
