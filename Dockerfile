@@ -36,7 +36,6 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* \
 	&& plowmod --install \
 	&& pip3 install tidal-dl \
-	&& pip3 install speedtest-cli \
 	&& pip3 install gdown \
 	&& pip3 install youtube-dl \
 	&& pip3 install llvd \
@@ -62,6 +61,10 @@ RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/i
 
 #Installing heroku cli
 RUN curl https://cli-assets.heroku.com/install.sh | sh
+
+#Installing Speedtest-CLI
+RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
+RUN sudo apt-get -y install speedtest
 
 ##Installing TTyD
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
