@@ -4,6 +4,8 @@ ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
+        net-tools \
+	iputils-ping \
 	neofetch \
 	groff \
 	tree \
