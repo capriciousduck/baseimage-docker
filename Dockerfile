@@ -43,7 +43,8 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install gdown \
 	&& pip3 install youtube-dl \
 	&& pip3 install llvd \
-	&& pip3 install awscli
+	&& pip3 install awscli \
+	&& pip3 install spotdl
 
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc && mc --autocompletion
@@ -51,7 +52,7 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
 #Installing gupload
 RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/master/install.sh | sh -s
 
-RUN yes | unminimize
+#RUN yes | unminimize
 
 #Installing nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y
