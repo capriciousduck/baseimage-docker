@@ -74,6 +74,10 @@ RUN sudo apt-get -y install speedtest
 ##Installing TTyD
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
+## Installing Simple-Torrent
+RUN cd /tmp && wget https://github.com/boypt/simple-torrent/releases/download/1.3.4/cloud-torrent_linux_amd64.gz && 7z x cloud-torrent_linux_amd64.gz && chmod +x cloud-torrent_linux_amd64 \
+    && mv cloud-torrent_linux_amd64 cloud-torrent && mv cloud-torrent /usr/local/bin/
+
 #Installing Linkedin Learning Downloader
 RUN pip3 install llvd
 
