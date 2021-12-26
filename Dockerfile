@@ -49,6 +49,10 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install llvd \
 	&& pip3 install awscli \
 	&& pip3 install spotdl
+	
+# Adding wstunnel
+COPY wstunnel /usr/local/bin/wstunnel
+RUN sudo chmod +x /usr/local/bin/wstunnel
 
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc && mc --autocompletion
