@@ -4,7 +4,8 @@ ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-        make \
+        tar \
+	make \
 	cmake \
 	gcc \
 	gcc+ \
@@ -91,4 +92,9 @@ RUN pip3 install llvd
 
 #Installing http-server
 RUN npm install -g http-server
+
+# Installing Upterm
+RUN wget https://github.com/owenthereal/upterm/releases/download/v0.6.7/upterm_linux_amd64.tar.gz && tar -zxvf upterm_linux_amd64.tar.gz \
+    && chmod +x upterm \
+    && mv upterm /usr/local/bin/
 
