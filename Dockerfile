@@ -81,7 +81,7 @@ RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 RUN sudo apt-get -y install speedtest
 
 #Installing TTyD v 1.6.1 (old version)
-RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd_linux.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
 ## Installing Simple-Torrent
 RUN cd /tmp && wget https://github.com/boypt/simple-torrent/releases/download/1.3.4/cloud-torrent_linux_amd64.gz && 7z x cloud-torrent_linux_amd64.gz && chmod +x cloud-torrent_linux_amd64 \
