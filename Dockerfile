@@ -96,5 +96,6 @@ RUN npm install -g http-server
 # Installing Upterm
 RUN wget https://github.com/owenthereal/upterm/releases/download/v0.6.7/upterm_linux_amd64.tar.gz && tar -zxvf upterm_linux_amd64.tar.gz \
     && chmod +x upterm \
-    && mv upterm /usr/local/bin/
+    && mv upterm /usr/local/bin/ \
+    && rm -rf *
 
