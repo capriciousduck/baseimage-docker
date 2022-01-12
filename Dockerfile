@@ -3,6 +3,7 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
         tar \
 	make \
