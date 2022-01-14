@@ -65,10 +65,9 @@ RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/mas
 #RUN yes | unminimize
 
 #Installing nodejs
-RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y
+RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
 
 #Install Railway CLI
-
 RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 
 #Installing aws cli
