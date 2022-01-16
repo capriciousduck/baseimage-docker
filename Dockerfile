@@ -5,7 +5,8 @@ ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-        tar \
+        rclone \
+	tar \
 	make \
 	cmake \
 	gcc \
