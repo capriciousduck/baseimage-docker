@@ -53,6 +53,18 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install awscli \
 	&& pip3 install spotdl
 	
+# Some packages for fun!!
+
+# https://www.makeuseof.com/fun-linux-command-line-programs/?utm_source=pocket_mylist
+
+RUN apt-get install -y cowsay \
+        sl \
+	figlet \
+	fortune \
+	rig
+
+
+
 # Adding wstunnel
 COPY wstunnel /usr/local/bin/wstunnel
 RUN sudo chmod +x /usr/local/bin/wstunnel
