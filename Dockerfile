@@ -57,7 +57,7 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 
 # https://www.makeuseof.com/fun-linux-command-line-programs/?utm_source=pocket_mylist
 
-RUN apt-get install -y cowsay \
+RUN apt-get update; apt-get install -y cowsay \
         sl \
 	figlet \
 	fortune \
