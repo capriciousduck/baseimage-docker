@@ -3,6 +3,7 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
+ENV WASABI_URL=https://s3.fr-1.wasabisys.com
 WORKDIR /root
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	bash-completion \
