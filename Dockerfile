@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV WASABI_URL=https://s3.fr-1.wasabisys.com
 WORKDIR /root
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
+	cmatrix \
 	bash-completion \
 	rclone \
 	tar \
@@ -79,7 +80,7 @@ RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/mas
 #RUN yes | unminimize
 
 #Installing nodejs
-RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
 
 #Install Railway CLI
 RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
@@ -94,22 +95,13 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 RUN sudo apt-get -y install speedtest
 
-#Installing TTyD v 1.6.1 (old version)
-RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+#ttyd (built from source https://github.com/tsl0922/ttyd)
 
-## Installing Simple-Torrent
-RUN cd /tmp && wget https://github.com/boypt/simple-torrent/releases/download/1.3.4/cloud-torrent_linux_amd64.gz && 7z x cloud-torrent_linux_amd64.gz && chmod +x cloud-torrent_linux_amd64 \
-    && mv cloud-torrent_linux_amd64 cloud-torrent && mv cloud-torrent /usr/local/bin/
+COPY ttyd /usr/local/bin/
+RUN chmod +x /usr/local/bin/ttyd
 
 #Installing Linkedin Learning Downloader
 RUN pip3 install llvd
 
 #Installing http-server
 RUN npm install -g http-server
-
-# Installing Upterm
-RUN wget https://github.com/owenthereal/upterm/releases/download/v0.6.7/upterm_linux_amd64.tar.gz && tar -zxvf upterm_linux_amd64.tar.gz \
-    && chmod +x upterm \
-    && mv upterm /usr/local/bin/ \
-    && rm -rf *
-
