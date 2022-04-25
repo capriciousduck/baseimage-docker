@@ -95,10 +95,9 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 RUN sudo apt-get -y install speedtest
 
-#ttyd (built from source https://github.com/tsl0922/ttyd)
+#ttyd (source --> https://github.com/tsl0922/ttyd)
 
-COPY ttyd /usr/local/bin/
-RUN chmod +x /usr/local/bin/ttyd
+RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
 #Installing Linkedin Learning Downloader
 RUN pip3 install llvd
