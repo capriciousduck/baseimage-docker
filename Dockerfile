@@ -4,7 +4,9 @@ ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
 ENV WASABI_URL=https://s3.fr-1.wasabisys.com
+
 WORKDIR /root
+
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	cmatrix \
 	bash-completion \
@@ -104,3 +106,9 @@ RUN pip3 install llvd
 
 #Installing http-server
 RUN npm install -g http-server
+
+# Installing Fly.io CLI
+
+RUN curl -L https://fly.io/install.sh | sh \
+    && echo 'FLYCTL_INSTALL="/root/.fly"' >> /root/.bashrc \
+    && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"'
