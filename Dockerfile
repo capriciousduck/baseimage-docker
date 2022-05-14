@@ -8,6 +8,7 @@ ENV WASABI_URL=https://s3.fr-1.wasabisys.com
 WORKDIR /root
 
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
+	fuse \
 	cmatrix \
 	bash-completion \
 	rclone \
