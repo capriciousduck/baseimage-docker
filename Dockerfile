@@ -112,4 +112,6 @@ RUN npm install -g http-server
 
 RUN curl -L https://fly.io/install.sh | sh \
     && echo 'FLYCTL_INSTALL="/root/.fly"' >> /root/.bashrc \
-    && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"'
+    && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"' >> /root.bashrc
+
+RUN curl -LJO "https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb" && dpkg -i gitlab-runner_amd64.deb && rm gitlab-runner_amd64.deb
