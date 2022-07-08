@@ -70,15 +70,15 @@ RUN apt-get update; apt-get install -y cowsay \
 
 
 
-# Adding wstunnel
-COPY wstunnel /usr/local/bin/wstunnel
-RUN sudo chmod +x /usr/local/bin/wstunnel
+# # Adding wstunnel
+# COPY wstunnel /usr/local/bin/wstunnel
+# RUN sudo chmod +x /usr/local/bin/wstunnel
 
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc && mc --autocompletion
 
-#Installing gupload
-RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/master/install.sh | sh -s
+# #Installing gupload
+# RUN curl --compressed -Ls https://github.com/labbots/google-drive-upload/raw/master/install.sh | sh -s
 
 #RUN yes | unminimize
 
@@ -88,8 +88,8 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && sud
 #Install Railway CLI
 RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
 
-#Installing aws cli
-#RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+# Installing aws cli
+# RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
 
 #Installing heroku cli
 RUN curl https://cli-assets.heroku.com/install.sh | sh
@@ -102,8 +102,8 @@ RUN sudo apt-get -y install speedtest
 
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
-#Installing Linkedin Learning Downloader
-RUN pip3 install llvd
+# #Installing Linkedin Learning Downloader
+# RUN pip3 install llvd
 
 #Installing http-server
 RUN npm install -g http-server
@@ -114,4 +114,4 @@ RUN curl -L https://fly.io/install.sh | sh \
     && echo 'FLYCTL_INSTALL="/root/.fly"' >> /root/.bashrc \
     && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"' >> /root.bashrc
 
-RUN curl -LJO "https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb" && dpkg -i gitlab-runner_amd64.deb && rm gitlab-runner_amd64.deb
+# RUN curl -LJO "https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb" && dpkg -i gitlab-runner_amd64.deb && rm gitlab-runner_amd64.deb
