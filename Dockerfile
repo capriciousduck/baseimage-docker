@@ -96,7 +96,7 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 #Installing Speedtest-CLI
 RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
-RUN sudo apt-get -y install speedtest
+RUN sudo apt update && sudo apt-get -y install speedtest
 
 #ttyd (source --> https://github.com/tsl0922/ttyd)
 
