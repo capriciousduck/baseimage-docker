@@ -99,11 +99,16 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 #     && sudo apt update \
 #     && sudo apt-get -y install speedtest
 
-RUN wget https://flaresofdata.herokuapp.com/bucket/speedtest -O /usr/local/bin/speedtest && chmod +x /usr/local/bin/speedtest
+#RUN wget https://flaresofdata.herokuapp.com/bucket/speedtest -O /usr/local/bin/speedtest && chmod +x /usr/local/bin/speedtest
 
 #ttyd (source --> https://github.com/tsl0922/ttyd)
 
-RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+#RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+
+# Copying cloud-torrent binary
+
+COPY cloud-torrent /usr/local/bin/
+RUN chmod +x /usr/local/bin/cloud-torrent
 
 # #Installing Linkedin Learning Downloader
 # RUN pip3 install llvd
