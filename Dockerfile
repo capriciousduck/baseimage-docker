@@ -116,6 +116,10 @@ RUN chmod +x /usr/local/bin/cloud-torrent
 #Installing http-server
 RUN npm install -g http-server
 
+#Installing Speedtest CLI
+
+RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash && apt-get install speedtest
+
 # Installing Fly.io CLI
 
 RUN curl -L https://fly.io/install.sh | sh \
