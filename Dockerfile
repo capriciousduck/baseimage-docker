@@ -69,11 +69,6 @@ RUN apt-get update; apt-get install -y cowsay \
 	rig
 
 
-
-# # Adding wstunnel
-# COPY wstunnel /usr/local/bin/wstunnel
-# RUN sudo chmod +x /usr/local/bin/wstunnel
-
 #Installing minio client
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && chmod +x /usr/local/bin/mc && mc --autocompletion
 
@@ -83,43 +78,28 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
 #RUN yes | unminimize
 
 #Installing nodejs
-RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
 
 #Install Railway CLI
 RUN sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
-
-# Installing aws cli
-# RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
 
 #Installing heroku cli
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 #Installing Speedtest-CLI
-# RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash \
-#     && sudo apt update \
-#     && sudo apt-get -y install speedtest
+RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash \
+     && sudo apt update \
+     && sudo apt-get -y install speedtest
 
-#RUN wget https://flaresofdata.herokuapp.com/bucket/speedtest -O /usr/local/bin/speedtest && chmod +x /usr/local/bin/speedtest
 
-#ttyd (source --> https://github.com/tsl0922/ttyd)
+
 
 #RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.1/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
-# Copying cloud-torrent binary
-
-COPY cloud-torrent /usr/local/bin/
-RUN chmod +x /usr/local/bin/cloud-torrent
-
-# #Installing Linkedin Learning Downloader
-# RUN pip3 install llvd
 
 #Installing http-server
 RUN npm install -g http-server
-
-#Installing Speedtest CLI
-
-RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash && apt-get install speedtest
 
 # Installing Fly.io CLI
 
