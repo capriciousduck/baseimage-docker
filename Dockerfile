@@ -108,3 +108,8 @@ RUN curl -L https://fly.io/install.sh | sh \
     && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"' >> /root.bashrc
 
 # RUN curl -LJO "https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb" && dpkg -i gitlab-runner_amd64.deb && rm gitlab-runner_amd64.deb
+
+# Installing Exatorrent
+
+RUN wget https://github.com/varbhat/exatorrent/releases/download/v0.1.1/exatorrent-linux-amd64 -O /usr/local/bin/exatorrent
+RUN chmod +x /usr/local/bin/exatorrent
