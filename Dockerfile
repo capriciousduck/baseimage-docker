@@ -65,10 +65,9 @@ RUN apt-get update; apt-get install -y cowsay \
 RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
 
 #Installing Speedtest-CLI
-RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash \
-     && sudo apt update \
-     && sudo apt-get -y install speedtest
-
+RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
+    && sudo apt-get install speedtest -y
+    
 #RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.1/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
