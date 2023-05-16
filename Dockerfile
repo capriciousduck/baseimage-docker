@@ -88,3 +88,6 @@ RUN wget https://github.com/varbhat/exatorrent/releases/download/v0.1.1/exatorre
 #      && sudo apt-get update && sudo apt-get install -y cloudflared
 
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared && chmod +x /usr/local/bin/cloudflared
+
+# Tailscale
+RUN curl -fsSL https://tailscale.com/install.sh | sh
