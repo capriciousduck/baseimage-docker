@@ -6,10 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-	fuse \
-	cmatrix \
+	figlet \
+        fuse \
 	bash-completion \
-	rclone \
 	tar \
 	make \
 	cmake \
@@ -25,7 +24,6 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	sshpass \
 	aria2 \
 	ffmpeg \
-	plowshare \
 	python3 \
 	python3-setuptools \
 	python3-pip \
@@ -50,16 +48,9 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	&& pip3 install tidal-dl \
 	&& pip3 install gdown \
 	&& pip3 install youtube-dl
-	
-# Some packages for fun!!
 
-# https://www.makeuseof.com/fun-linux-command-line-programs/?utm_source=pocket_mylist
-
-RUN apt-get update; apt-get install -y cowsay \
-        sl \
-	figlet \
-	fortune \
-	rig
+# Install Latest RClone
+RUN curl https://rclone.org/install.sh | sudo bash
 
 #Installing nodejs
 RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
@@ -71,12 +62,6 @@ RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/scr
 #RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 # RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.1/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
-
-# Installing Fly.io CLI
-
-RUN curl -L https://fly.io/install.sh | sh \
-    && echo 'FLYCTL_INSTALL="/root/.fly"' >> /root/.bashrc \
-    && echo 'PATH="$FLYCTL_INSTALL/bin:$PATH"' >> /root.bashrc
 
 ### Installing Exatorrent
 RUN wget https://github.com/varbhat/exatorrent/releases/download/v0.1.1/exatorrent-linux-amd64 -O /usr/local/bin/exatorrent && chmod +x /usr/local/bin/exatorrent
