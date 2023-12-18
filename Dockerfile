@@ -64,7 +64,9 @@ RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/scr
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
 ### Installing Exatorrent
-RUN wget https://github.com/varbhat/exatorrent/releases/download/v0.1.1/exatorrent-linux-amd64 -O /usr/local/bin/exatorrent && chmod +x /usr/local/bin/exatorrent
+# RUN wget https://github.com/varbhat/exatorrent/releases/download/v0.1.1/exatorrent-linux-amd64 -O /usr/local/bin/exatorrent && chmod +x /usr/local/bin/exatorrent
+COPY exatorrent /usr/local/bin/exatorrent
+RUN chmod +x /usr/local/bin/exatorrent
 
 ###Installing Cloudflared
 # RUN sudo mkdir -p --mode=0755 /usr/share/keyrings \
