@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV SHELL=/bin/bash
@@ -6,23 +6,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-	figlet \
         fuse \
 	bash-completion \
 	tar \
-	make \
-	cmake \
-	gcc \
-	gcc+ \
+	build-essential \
 	net-tools \
 	iputils-ping \
 	neofetch \
 	groff \
 	tree \
 	openssh-server \
-	build-essential \
 	sshpass \
-	aria2 \
 	ffmpeg \
 	python3 \
 	python3-setuptools \
@@ -32,22 +26,20 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	unrar \
 	p7zip-full \
 	wget \
+	curl \
 	nano \
 	detox \
 	tmux \
-  curl \
-  htop \
+        htop \
 	file \
-  net-tools \
 	sudo \
 	software-properties-common \
 	git \
   && apt-get autoclean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/* \
-	&& pip3 install tidal-dl \
 	&& pip3 install gdown \
-	&& pip3 install youtube-dl
+	&& pip3 install yt-dlp
 
 # Install Latest RClone
 RUN curl https://rclone.org/install.sh | sudo bash
@@ -58,9 +50,7 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && sud
 #Installing Speedtest-CLI
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
     && sudo apt-get install speedtest -y
-    
-#RUN wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
-# RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.1/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+	
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 -O /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
 
 ### Installing Exatorrent
