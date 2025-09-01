@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-        fuse \
+    fuse \
 	bash-completion \
 	tar \
 	build-essential \
@@ -30,17 +30,15 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 	nano \
 	detox \
 	tmux \
-        htop \
+    htop \
 	file \
 	sudo \
 	software-properties-common \
 	git \
   && apt-get autoclean \
   && apt-get autoremove \
-  && rm -rf /var/lib/apt/lists/* \
-	&& pip3 install gdown \
-	&& pip3 install yt-dlp
-
+  && rm -rf /var/lib/apt/lists/*
+  
 # Install Latest RClone
 RUN curl https://rclone.org/install.sh | sudo bash
 
