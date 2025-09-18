@@ -42,8 +42,9 @@ RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
 # Install Latest RClone
 RUN curl https://rclone.org/install.sh | sudo bash
 
-#Installing nodejs
+#Installing nodejs and http-server
 RUN curl -sL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh && sudo bash nodesource_setup.sh && sudo apt-get update && sudo apt install nodejs -y && rm -rf nodesource_setup.sh
+RUN npm install -g http-server
 
 #Installing Speedtest-CLI
 #RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
