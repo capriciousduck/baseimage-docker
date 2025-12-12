@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 
 RUN apt-get update; apt upgrade -y; apt-get install -y --no-install-recommends \
-    fuse \
+    axel \
+	fuse \
 	bash-completion \
 	tar \
 	build-essential \
