@@ -75,3 +75,5 @@ RUN apt-get update && \
          > /etc/apt/sources.list.d/docker.list && \
     apt-get update && \
 	sudo apt-get install docker-ce-cli docker-buildx-plugin docker-compose-plugin -y
+
+RUN wget https://github.com/jkawamoto/go-pixeldrain/releases/download/v0.7.6/pixeldrain_0.7.6_linux_amd64.deb -O pixeldrain_0.7.6_linux_amd64.deb && apt install -y ./pixeldrain_0.7.6_linux_amd64.deb && rm pixeldrain_0.7.6_linux_amd64.deb
